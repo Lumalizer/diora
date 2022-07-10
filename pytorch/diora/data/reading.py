@@ -9,6 +9,7 @@ Each reader should return:
 
 import os
 import json
+import nltk
 
 from tqdm import tqdm
 
@@ -338,3 +339,10 @@ class SyntheticReader(object):
             "metadata": metadata
             }
 
+class PTBReader(BaseTextReader):
+    def read_line(self, line):
+        nltk_tree = nltk.Tree.fromstring(line.strip())
+        s = nltk_tree.leaves()
+        if self.lowercase:
+            s = [w.lower() for w in s]
+        yield s

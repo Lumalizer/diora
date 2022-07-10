@@ -121,6 +121,8 @@ class ReconstructDataset(object):
             reader = NLIReader.build(lowercase=options.lowercase, filter_length=filter_length)
         elif data_type == 'conll_jsonl':
             reader = ConllReader(lowercase=options.lowercase, filter_length=filter_length)
+        elif data_type == 'ptb':
+            reader = PTBReader(lowercase=options.lowercase, filter_length=filter_length)
         elif data_type == 'txt':
             reader = PlainTextReader(lowercase=options.lowercase, filter_length=filter_length, include_id=False)
         elif data_type == 'txt_id':

@@ -4,7 +4,6 @@ import json
 import types
 
 import torch
-
 from tqdm import tqdm
 
 from train import argument_parser, parse_args, configure
